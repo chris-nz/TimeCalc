@@ -1,0 +1,172 @@
+/**
+ *	Time Calculator Stylesheet
+ */
+
+/*--------------------------------*/
+/* Main content box               */
+/*--------------------------------*/
+body {
+	margin: 0;
+	background-color:#000;
+    font-family: Verdana, Tahoma, "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 12px;
+}
+section {
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 5px;
+	text-align: center;
+	width: 960px;
+	background-color: #FFF;
+}
+.contentWidth {
+	width: 700px;
+}
+
+/*--------------------------------*/
+/* Element styling                */
+/*--------------------------------*/
+img {
+	border: none;
+}
+input[type=text] {
+	border: 1px solid #95a7b9;
+	border-radius: 5px;				/* Round corners on edge of text boxes */
+	text-align: center;
+}
+textarea {
+	border: 1px solid #95a7b9;		/* #7F9DB9 is Firefox default */
+	border-radius: 5px;
+}
+
+/*--------------------------------*/
+/* Headings                       */
+/*--------------------------------*/
+h1 {
+	font-size: 13px;
+	font-weight: bolder;
+	color: #ff5c00;
+}
+
+/*--------------------------------*/
+/* Timesheet date and top buttons */
+/*--------------------------------*/
+.topNav {
+	overflow: auto;
+	margin: 15px auto 10px auto;
+	padding: 5px;
+}
+.bottomNav {
+	overflow: auto;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.leftCol {
+	position: relative;
+	float: left;
+	width: 355px;
+}
+.rightCol {
+	position: relative;
+	float: right;
+}
+
+/*--------------------------------*/
+/* Form elements                  */
+/*--------------------------------*/
+#error {
+	font-weight: bold;
+	color: red;
+}
+#timeRows {
+	margin: 0 auto;
+}
+#displayDate {
+	width: 120px;
+}
+#uploadProgress {
+	display: none;
+}
+#uploadTarget {
+	width: 0;
+	height: 0;
+	border: 0px solid #fff;
+}
+#uploadProgress {
+	font-weight: normal;
+	color: #000;
+}
+#backupData {
+	display: none;
+}
+.startEndTimeLegend {
+	font-weight: bold;
+	color: #01aa01;
+}
+.rowHeading {
+	font-weight: bold;
+	color: #0066ff;
+}
+.totalLegend {
+	font-weight: bold;
+	color: red;
+	text-align: center;
+}
+.totalHoursMins {
+	font-size: 10px;
+	font-weight: bold;
+}
+/* Container for the checkboxes so they are more clickable */
+.checkboxLabel {
+	width: 50px;
+	height: 35px;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+/* Hour and Min validation */
+.timeError {
+	background-color: #ff9f9f;
+	color: #ff0000;
+}
+.timeCorrect {
+	background-color: #ccffcc;
+	color: #00cc00;
+}
+.hidden {
+	display: none;
+}
+/* Footer */
+.footer {
+	font-size: 10px;
+	text-align: center;
+	color: #FFF;
+	margin: 10px auto;
+}
+.footer a {
+	color: #FFF;
+}
+.footer a:hover {
+	text-decoration: none;
+}
+
+/*--------------------------------*/
+/* Alignments
+/*--------------------------------*/
+.alignLeft {
+	text-align: left !important;
+}
+.alignCenter {
+	text-align: center !important;
+}
+.alignRight {
+	text-align: right !important;
+}
+.verticalAlignTop {
+	vertical-align: top;
+}
+.verticalAlignMid {
+	vertical-align: middle;
+}
+.verticalAlignLow {
+	vertical-align: bottom;
+}
