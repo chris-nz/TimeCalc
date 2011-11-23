@@ -1,3 +1,4 @@
+* Reset colours/error status on hour min fields and warning icon when clear button pressed
 * Add a job/task code field
 * Add a jQueryUI tab for each day of the week (Sun, Mon, Tue, Wed, Thu, Fri, Sat), so the whole week total can be calculated
 * The date picker will need to select an entire week range
