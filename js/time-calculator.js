@@ -1,24 +1,9 @@
 /**
  * Time Calculator Javascript
- * Version 3.2 - 20 Nov 2011
- *
- * Copyright (c) 2011 Chris Riley
+ * Copyright © 2011 Chris Riley
  * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the 
- * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
- * permit persons to whom the Software is furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the 
- * Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
- * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
- * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
- * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * 
- * Todo:
- * Possibly add a tab for each day of the week, so the whole week total can be calculated
+ * Source code released under the MIT licence.
+ * http://www.opensource.org/licenses/mit-license.php
  */
 
 // Object to hold all the values
@@ -114,12 +99,12 @@ function download()
 	var filename = date + '-Timesheet.json';
 	var content = JSON.stringify(timeStorage);
 	
-	// Encode string for passing to the PHP page
-	content = encodeURIComponent(content);
+	// Put the content into the page so the form will POST it to the PHP page
+	$('#filename').val(filename);
+	$('#content').val(content);
 	
-	// Popup the save dialogue box with the file information
-	var ifrm = document.getElementById('backupData');
-	ifrm.src = 'php/download.php?filename=' + filename + '&content=' + content;
+	// Submit the form via POST which will popup the save dialogue box with the file information
+	$('#downloadForm').submit();
 }
 
 /**
@@ -677,6 +662,20 @@ function stringToBoolean(string)
 		case "false": case "no": case "0": case null:return false;
 		default:return Boolean(string);
 	}
+}
+
+/**
+ * Converts a UTF-8 string to BASE-64
+ */
+function utf8_to_b64( str ) {
+    return window.btoa(unescape(encodeURIComponent( str )));
+}
+
+/**
+ * Decodes a BASE-64 string to UTF-8
+ */
+function b64_to_utf8( str ) {
+    return decodeURIComponent(escape(window.atob( str )));
 }
 
 /**
