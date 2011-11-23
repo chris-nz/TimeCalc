@@ -5,7 +5,7 @@ The website code is open source and is a simple page to easily calculate your to
 
 Multiple tasks can be entered throughout the day and it will total up the day's work. You can also subtotal/group related tasks so they can be totalled together. Basically it saves a user time doing mental math in their head to work out how many hours they're spending on each task. It is useful for consultancy based organisations who have to bill by the hour to various projects.
 
-Timesheets can be backed up to a JSON file and also restored again. The site uses the latest technologies in HTML5, jQuery and PHP 5.3.
+Timesheets can be backed up to a JSON file and also restored again. The site uses the latest technologies in HTML 5, jQuery and PHP 5.3. Data is saved locally in each user's browser using HTML5 local storage and persists even after refreshing the page or closing the browser. The data can be cleared by clearing the browser cache or pushing the Clear button on the page.
 
 
 
