@@ -1,19 +1,20 @@
 Timesheet Calculator
+http://timecalc.tk
 
-The website is open source and is a simple page to easily calculate your total hours worked each day which can then be copied into your company's timesheet tool. You enter in your start time, the details about the task you are doing and the end time then the page will calculate how many hours this task took.
+The website code is open source and is a simple page to easily calculate your total hours worked each day which can then be copied into your company's timesheet tool. You enter in your start time, the details about the task you are doing and the end time then the page will calculate how many hours this task took.
 
 Multiple tasks can be entered throughout the day and it will total up the day's work. You can also subtotal/group related tasks so they can be totalled together. Basically it saves a user time doing mental math in their head to work out how many hours they're spending on each task. It is useful for consultancy based organisations who have to bill by the hour to various projects.
 
 Timesheets can be backed up to a JSON file and also restored again. The site uses the latest technologies in HTML5, jQuery and PHP 5.3.
 
 
+
 Source code released under MIT licence
 http://www.opensource.org/licenses/mit-license.php
 
-Copyright (c) 2011 Chris Riley
+Copyright © 2011 Chris Riley
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
-documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
