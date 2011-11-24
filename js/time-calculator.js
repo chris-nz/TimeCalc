@@ -9,7 +9,7 @@
 // Object to hold all the values
 var timeStorage = {};
 
-// How many time edit rows you want
+// How many time edit rows to be displayed
 var numOfTimeEntries = 7;
 	
 /**
@@ -17,13 +17,13 @@ var numOfTimeEntries = 7;
  */
 $(document).ready(function()
 {
-	// Make sure HTML 5 storage support is available
-	if (checkSupportForHtml5Storage() === false)
+	// Check the browser is supported or show an error message
+	if (checkBrowserSupported() === false)
 	{
-		$('#error').html('HTML5 storage is not available');
-	};
+		$('#browserSupportError').show();
+	}
 
-	// Generates the form & loads the previously submitted entries
+	// Generate the form & loads the previously submitted entries
 	generateForm(numOfTimeEntries);				
 	loadPreviousEntriesFromStorage(numOfTimeEntries);				
 
@@ -33,7 +33,7 @@ $(document).ready(function()
 		calculateTotalTime(numOfTimeEntries);
 	});	
 
-	// When the calculate button is clicked it calculates the time for all rows
+	// When the clear button is clears the local storage and entries
 	$('#btnClear').click(function()
 	{
 		clearStorageAndForm(numOfTimeEntries);
@@ -119,14 +119,16 @@ function clearStorageAndForm()
 	for (var i=0; i < numOfTimeEntries; i++)
 	{
 		// Clear fields on the page to default values
-		$('#startHour' + i).val('');
-		$('#startMin' + i).val('');
-		$('#endHour' + i).val('');
-		$('#endMin' + i).val('');
+		$('#startHour' + i).val('').removeClass('timeError');
+		$('#startMin' + i).val('').removeClass('timeError');
+		$('#endHour' + i).val('').removeClass('timeError');
+		$('#endMin' + i).val('').removeClass('timeError');
+		$('#warningIcon' + i).hide();
 		$('#task' + i).val('');
 		$('#subTotal' + i).prop('checked', false);
 		$('#totalTimeRow' + i).html(0);		
-		$('#totalTimeRowHoursMins' + i).html('');	
+		$('#totalTimeRowHoursMins' + i).html('');
+		
 	}
 	
 	// Clear date fields and overall totals
@@ -688,6 +690,45 @@ function checkSupportForHtml5Storage()
 	}
 	catch (e)
 	{
+		return false;
+	}
+}
+
+/**
+ * Check if the browser is supported
+ * Internet Explorer 8 and below are not supported
+ */
+function checkBrowserSupported()
+{
+	// Get the browser details
+	var userAgent = navigator.userAgent.toLowerCase();
+    var browser = {
+        version: (userAgent.match( /.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [0,'0'])[1],
+        webkit: /webkit/.test( userAgent ),
+        opera: /opera/.test( userAgent ),
+        msie: /msie/.test( userAgent ) && !/opera/.test( userAgent ),
+        mozilla: /mozilla/.test( userAgent ) && !/(compatible|webkit)/.test( userAgent )
+    };
+	
+	// If the browser is webkit opera or mozilla it's probably fine'
+	if ((browser.webkit === true) || (browser.opera === true) || (browser.mozilla === true))
+	{
+		// Make sure HTML 5 storage support is available
+		if (checkSupportForHtml5Storage() === false)
+		{
+			$('#browserSupportError').html('HTML5 local storage support is not available');
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	else if ((browser.msie === true) && (browser.version > 8.0))
+	{
+		// IE 9 onwards is ok
+		return true;
+	}
+	else {
 		return false;
 	}
 }

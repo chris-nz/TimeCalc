@@ -51,12 +51,12 @@ h1 {
 /*--------------------------------*/
 /* Timesheet date and top buttons */
 /*--------------------------------*/
-.topNav {
+nav {
 	overflow: auto;
 	margin: 15px auto 10px auto;
 	padding: 5px;
 }
-.bottomNav {
+.restoreBackup {
 	overflow: auto;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -74,9 +74,21 @@ h1 {
 /*--------------------------------*/
 /* Form elements                  */
 /*--------------------------------*/
-#error {
+#browserSupportError {
+	margin: 20px 90px;
+}
+#javascriptError {
+	margin: 20px 60px;
+}
+.error {
 	font-weight: bold;
 	color: red;
+}
+.error a {
+	color: red;
+}
+.error a:hover {
+	text-decoration: none;
 }
 #timeRows {
 	margin: 0 auto;
@@ -136,16 +148,16 @@ h1 {
 	display: none;
 }
 /* Footer */
-.footer {
+footer {
 	font-size: 10px;
 	text-align: center;
 	color: #FFF;
 	margin: 10px auto;
 }
-.footer a {
+footer a {
 	color: #FFF;
 }
-.footer a:hover {
+footer a:hover {
 	text-decoration: none;
 }
 
