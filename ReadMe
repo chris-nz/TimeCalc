@@ -7,6 +7,7 @@ Multiple tasks can be entered throughout the day and it will total up the day's 
 
 Timesheets can be backed up to a JSON file and also restored again. The site uses the latest technologies in HTML 5, jQuery and PHP 5.3. Data is saved locally in each user's browser using HTML5 local storage and persists even after refreshing the page or closing the browser. The data can be cleared by clearing the browser cache or pushing the Clear button on the page.
 
+Supported browsers are the latest versions of Firefox, Chrome, Safari and Opera. Internet Explorer 9 may also work.
 
 
 Source code released under MIT licence
