@@ -162,6 +162,30 @@ footer a:hover {
 }
 
 /*--------------------------------*/
+/* Form elements                  */
+/*--------------------------------*/
+
+.helpPage {
+	text-align: left;
+}
+.helpContent {
+	margin: 20px 60px;
+}
+.helpPage p {
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+.helpPage ol {
+	margin-left: 20px;
+	padding: 0;
+}
+.helpPage li {
+	list-style: decimal;
+	margin: 0;
+	padding: 5px;
+}
+
+/*--------------------------------*/
 /* Alignments
 /*--------------------------------*/
 .alignLeft {
