@@ -1,0 +1,48 @@
+CACHE MANIFEST
+# 2011-11-27-v0.0.6
+#--------------------------------
+# Pages
+#--------------------------------
+../index.html
+../help.html
+#--------------------------------
+# CSS
+#--------------------------------
+../css/buttons.css
+../css/time-calculator.css
+../css/custom-theme/jquery-ui-1.8.15.custom.css
+../css/custom-theme/images/ui-bg_flat_0_aaaaaa_40x100.png
+../css/custom-theme/images/ui-bg_flat_75_ffffff_40x100.png
+../css/custom-theme/images/ui-bg_glass_55_fbf9ee_1x400.png
+../css/custom-theme/images/ui-bg_glass_65_ffffff_1x400.png
+../css/custom-theme/images/ui-bg_glass_75_dadada_1x400.png
+../css/custom-theme/images/ui-bg_glass_75_e6e6e6_1x400.png
+../css/custom-theme/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+../css/custom-theme/images/ui-bg_inset-soft_95_fef1ec_1x100.png
+../css/custom-theme/images/ui-icons_222222_256x240.png
+../css/custom-theme/images/ui-icons_2e83ff_256x240.png
+../css/custom-theme/images/ui-icons_454545_256x240.png
+../css/custom-theme/images/ui-icons_888888_256x240.png
+../css/custom-theme/images/ui-icons_cd0a0a_256x240.png
+#--------------------------------
+# JavaScript
+#--------------------------------
+../js/jquery-1.7.1.min.js
+../js/jquery-ui-1.8.15.custom.min.js
+../js/time-calculator.min.js
+#--------------------------------
+# Images
+#--------------------------------
+../img/clock.png
+../img/heading.png
+../img/help-subtotalling.png
+../img/help-timesheet-backup-1.png
+../img/help-timesheet-backup-2.png
+../img/html5-badge-h-css3-semantics-storage.png
+../img/loading-bar.gif
+../img/warning-icon.png
+#--------------------------------
+FALLBACK:
+offline.html
+NETWORK:
+*

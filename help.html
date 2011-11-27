@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Time calculator - How to use</title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="Open source HTML5 Timesheet Calculator">
+		<meta name="keywords" content="Timesheet, time, calculator, free, open source">
+		
+		<link type="text/css" href="css/time-calculator.css" rel="stylesheet">
+		<link type="text/css" href="css/buttons.css" rel="stylesheet">
+	</head>
+	<body>
+		<section class="helpPage">
+			<div class="helpContent">
+				<h1>How to use this site</h1>
+
+				<b>Summary</b>
+				<p>The website is a simple tool to easily calculate your total hours worked each day which can then be copied 
+				into your company's timesheet system. You enter in your start time, the details about the task you are doing 
+				and the end time when you finish the task. The page will then calculate how many hours this task took.<br>
+				<br>
+				Multiple tasks can be entered throughout the day and it will total up the day's work. Basically it saves you 
+				time doing mental math to work out how many hours you need to put down for each task. It is useful for 
+				consultancy based companies who have to bill by the hour to various projects throughout the week.</p>
+
+				<b>Key points</b>
+				<ol>
+					<li>Use 24 hour time for the <i>Hour</i> and <i>Min</i> columns.</li>
+					<li>
+						Always click the <i>Calculate and save</i> button if you've made changes. This saves the timesheet 
+						data into the browser's storage so you can then close the page or browser and resume later. The 
+						data will stay there as long as you don't clear your browser's history.
+					</li>
+					<li>
+						The clock icon next to <i>Start</i> and <i>End</i> on each row inserts the current local time. 
+						Use this if you are just starting or finishing a task.
+					</li>
+				</ol>
+
+				<b>Grouping tasks together</b>
+				<p>If you work on the same task at different times of the day you can click the subtotal checkbox next to 
+				each task so they are grouped together. When you click the <i>Calculate and save</i> button it will total
+				up the time spent on those tasks and show it at the bottom of the page. For example:<br>
+				<br>
+				<img src="img/help-subtotalling.png">
+				</p>
+				
+				<b>Backing up your timesheets</b>
+				<p>
+					You should backup the timesheet every day and save it to a file on your hard drive. That way you can 
+					restore and view previous timesheets if you need to. Click the <i>Download</i> button to save the 
+					timesheet to your hard drive. For example:<br>
+					<br>
+					<img src="img/help-timesheet-backup-1.png"><br>
+					<br>
+					<img src="img/help-timesheet-backup-2.png">
+				</p>
+				
+				<b>Restoring your timesheet</b>
+				<p>Restoring is as simple as choosing the file you want to restore and opening it.</p>
+
+				<b>Technical information</b>
+				<p>
+					The site uses the latest technologies in <a href="http://en.wikipedia.org/wiki/HTML5">HTML5</a> and 
+					<a href="http://jquery.com/">jQuery</a>. Data is saved locally in each user's browser using 
+					<a href="http://dev.w3.org/html5/webstorage/">HTML 5 local storage</a>. The website is also saved 
+					into <a href="http://www.w3.org/TR/html5/offline.html">HTML5 offline application cache</a> so that 
+					the page can be loaded instantly from the browser cache rather from the server each time. It is 
+					expected the page will be reloaded multiple times each day and week so there's no need to download 
+					the website each time from the server.
+				</p>
+				<p>
+					Due to the new technologies being used the only current supported browsers are the latest versions 
+					of <a href="http://mozilla.com">Firefox</a>, <a href="http://google.com/chrome/">Chrome</a>, 
+					<a href="http://apple.com/safari/">Safari</a> or <a href="http://opera.com">Opera</a>. 
+					<a href="http://windows.microsoft.com/ie9">Internet Explorer 9</a> may also work but is untested at 
+					this time.
+				</p>
+				
+				<b>Source code</b>
+				<p>
+					The source code is released under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT licence</a> 
+					and free to use or modify for commercial purposes.
+				</p>
+			</div>
+		</section>
+		
+		<footer class="contentWidth">
+			&copy; 2011 | <a href="https://github.com/timecalc/TimeCalc">Source on Github</a> | <a href="index.html">Home</a><br>
+			<br>
+			Excellent hosting provided free by <a href="http://vlexofree.com/">VlexoFree Hosting</a><br>
+			<br>
+			<a href="http://www.w3.org/html/logo/">
+				<img src="img/html5-badge-h-css3-semantics-storage.png" title="HTML5 Powered with CSS3 / Styling, Semantics, and Offline &amp; Storage">
+			</a>
+		</footer>
+	</body>
+</html>
