@@ -24,53 +24,55 @@ $(document).ready(function()
 	if (checkBrowserSupported() === false)
 	{
 		$('#browserSupportError').show();
+		$('body').css('background-color', '#FFF');		// IE seems to make the whole background black
 	}
+	else {
+		// Generate the form & loads the previously submitted entries
+		generateForm(numOfTimeEntries);				
+		loadPreviousEntriesFromStorage(numOfTimeEntries);				
 
-	// Generate the form & loads the previously submitted entries
-	generateForm(numOfTimeEntries);				
-	loadPreviousEntriesFromStorage(numOfTimeEntries);				
+		// When the calculate button is clicked it calculates the time for all rows
+		$('#btnCalculateTotalTime').click(function()
+		{
+			calculateTotalTime(numOfTimeEntries);
+		});	
 
-	// When the calculate button is clicked it calculates the time for all rows
-	$('#btnCalculateTotalTime').click(function()
-	{
-		calculateTotalTime(numOfTimeEntries);
-	});	
+		// When the clear button is clears the local storage and entries
+		$('#btnClear').click(function()
+		{
+			clearStorageAndForm(numOfTimeEntries);
+		});
 
-	// When the clear button is clears the local storage and entries
-	$('#btnClear').click(function()
-	{
-		clearStorageAndForm(numOfTimeEntries);
-	});
+		// Datepicker
+		$('#displayDate').datepicker(
+		{
+			selectWeek : true,
+			closeOnSelect : false,
+			dateFormat : 'D d M yy',		// Wed 17 Aug 2011 (For text box display)
+			altField: '#backendDate',
+			altFormat: 'yy-mm-dd-DD'		// 17-8-2011-Wednesday (For file saving)
+		});
 
-	// Datepicker
-	$('#displayDate').datepicker(
-	{
-		selectWeek : true,
-		closeOnSelect : false,
-		dateFormat : 'D d M yy',		// Wed 17 Aug 2011 (For text box display)
-		altField: '#backendDate',
-		altFormat: 'yy-mm-dd-DD'		// 17-8-2011-Wednesday (For file saving)
-	});
+		// Update the title of the page on change
+		$('#displayDate').change(function()
+		{
+			var date = $('#backendDate').val();					
+			$('title').text(date + '-Timesheet');
+		});
 
-	// Update the title of the page on change
-	$('#displayDate').change(function()
-	{
-		var date = $('#backendDate').val();					
-		$('title').text(date + '-Timesheet');
-	});
-	
-	// Download the JSON data to a file
-	$('#btnBackupData').click(function()
-	{
-		download();
-	});
-		
-	// Uploads a JSON file to the page
-	$('#restoreFile').change(function()
-	{
-		$('#uploadProgress').show();
-		$('#uploadForm').submit();
-	});
+		// Download the JSON data to a file
+		$('#btnBackupData').click(function()
+		{
+			download();
+		});
+
+		// Uploads a JSON file to the page
+		$('#restoreFile').change(function()
+		{
+			$('#uploadProgress').show();
+			$('#uploadForm').submit();
+		});
+	} // else
 });
 
 /**
