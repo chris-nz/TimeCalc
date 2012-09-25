@@ -7,13 +7,13 @@ Multiple tasks can be entered throughout the day and it will total up the day's 
 
 Timesheets can be backed up to a JSON file and also restored again. The site uses the latest technologies in HTML 5, jQuery and PHP 5.3. Data is saved locally in each user's browser using HTML5 local storage and persists even after refreshing the page or closing the browser. The data can be cleared by clearing the browser cache or pushing the Clear button on the page.
 
-Supported browsers are the latest versions of Firefox, Chrome, Safari and Opera. Internet Explorer 9 may also work.
+Supported browsers are the latest versions of Firefox, Chrome, Safari, Opera and Internet Explorer 9.
 
 
 Source code released under MIT licence
 http://www.opensource.org/licenses/mit-license.php
 
-Copyright © 2011 Chris Riley
+Copyright © 2012 SportsGen Ltd
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
