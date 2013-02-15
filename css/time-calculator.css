@@ -206,3 +206,19 @@ footer a:hover {
 .verticalAlignLow {
 	vertical-align: bottom;
 }
+
+/*--------------------------------*/
+/* Break time page
+/*--------------------------------*/
+
+.template {
+	display: none;
+}
+
+.MainStartTime {
+	margin: 0 auto 20px auto;
+}
+
+.timeEntry {
+	width: 30px;
+}

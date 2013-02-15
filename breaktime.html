@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+Timesheet Calculator
+Copyright © 2013 SportsGen Ltd
+
+Source code released under the MIT licence.
+http://www.opensource.org/licenses/mit-license.php
+-->
+<html manifest="offline/manifest.appcache">
+	<head>
+		<title>Break time calculator</title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="Open source HTML5 Timesheet Calculator">
+		<meta name="keywords" content="Break, time, calculator, free, open source">
+		
+		<link type="text/css" href="css/time-calculator.css" rel="stylesheet">
+		<link type="text/css" href="css/buttons.css" rel="stylesheet">
+		<link type="text/css" href="css/jqueryui/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+		<link rel="shortcut icon" href="favicon.ico">
+		
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+		<script type="text/javascript" src="js/time-calculator.js"></script>
+		
+		<script type="text/javascript">
+			// Page load initialisation
+			$(document).ready(function()
+			{
+				
+				
+				calculateBreaks();
+			});
+			
+			$('#startHour').change(function()
+			{
+				calculateBreaks();
+			})
+			.keyup(function()
+			{
+				moveCursorOnMaxLength('startHour', 'startMin');
+			});
+			
+			function calculateBreaks()
+			{
+				console.log('got here');
+				
+				// Constants in minutes
+				var workTime = 55;
+				var breakTime = 5;
+				var lunchTime = 30;
+				
+				var startHour = $('#startHour').val();
+				var startMin = $('#startMin').val();
+				var workingDateTime = new Date('January 10, 2013 ' + startHour + ':' + startMin + ':' + '00');
+				
+				var times = [];
+				var timeRow = {};
+								
+				// For eight hours work
+				for (var i=0; i < 8; i++)
+				{
+					// Set the start time for work
+					var startTime = workingDateTime.getHours() + ':' + workingDateTime.getMinutes();
+					
+					// Set the end time for work
+					workingDateTime.setMinutes(workingDateTime.getMinutes() + workTime);
+					var endTime = workingDateTime.getHours() + ':' + workingDateTime.getMinutes();
+							
+					// Add the work times to the array of objects
+					timeRow = {
+						'startTime': startTime,
+						'endTime': endTime,
+						'timeSpanDescription': workTime + ' minutes work'
+					};
+					times.push(timeRow);
+					
+					
+					// Set the start time for breaks
+					var startTime = workingDateTime.getHours() + ':' + workingDateTime.getMinutes();
+					
+					// Set the end time for breaks
+					workingDateTime.setMinutes(workingDateTime.getMinutes() + breakTime);
+					var endTime = workingDateTime.getHours() + ':' + workingDateTime.getMinutes();
+							
+					// Add the work times to the array of objects
+					timeRow = {
+						'startTime': startTime,
+						'endTime': endTime,
+						'timeSpanDescription': breakTime + ' minutes work'
+					};
+					times.push(timeRow);
+				}
+				
+				console.log(times);
+				
+				// Display the times
+				for (var j=0; j < times.length; j++)
+				{
+					// For each new row of data we copy the template row, substitute our values and append it to the end of the table
+					var newRow = $('#breakTimeTable .template').clone().removeClass('template');
+					template(newRow, times[j]).appendTo('#breakTimeTable').fadeIn();
+				}
+			}	
+			
+			/**
+			 * For each new row of data we copy the template row, substitute our values and append it to the end of the table
+			 */
+			function template(templateRow, timeObject)
+			{
+				templateRow.find('.startTime').text(timeObject.startTime);
+				templateRow.find('.endTime').text(timeObject.endTime);
+				templateRow.find('.timeSpanDescription').text(timeObject.timeSpanDescription);
+				
+				return templateRow;
+			}
+		</script>
+	</head>
+	<body>
+		<section>
+			<!-- Main heading -->
+			<!--<img src="img/heading.png" alt="Break time calculator">-->
+			<h1>Break time calculator</h1>
+			
+			<!-- Error messages -->
+			<div id="browserSupportError" class="error hidden">
+				This site uses the latest HTML 5 technologies. Your browser appears to be unsupported and the site may 
+				not function or display properly. Please use the latest version of 
+				<a href="http://mozilla.com">Firefox</a>, 
+				<a href="http://google.com/chrome/">Chrome</a>,
+				<a href="http://apple.com/safari/">Safari</a>,
+				<a href="http://opera.com">Opera</a>, or 
+				<a href="http://windows.microsoft.com/ie9">Internet Explorer 9</a>.
+			</div>
+			<noscript>
+				<div id="javascriptError" class="error">
+					This site requires <a href="http://en.wikipedia.org/wiki/Javascript">JavaScript</a> for full 
+					functionality. Please <a href="http://www.alanwood.net/demos/enabling-javascript.html">enable JavaScript</a> 
+					in your browser or add an exception for this site.
+				</div>
+			</noscript>
+			
+			<table class="MainStartTime">
+				<tr>
+					<td colspan="2">Start time</td>
+				</tr>
+				<tr>
+					<td><input id="startHour" class="timeEntry" type="text" maxlength="2" placeholder="08" value="08"></td>
+					<td><input id="startMin" class="timeEntry" type="text" maxlength="2" placeholder="30" value="30"></td>
+				</tr>
+			</table>
+			
+			<!-- The break time rows -->
+			<table id="breakTimeTable" class="breakTimeTable">
+				<tr class="template">
+					<td>
+						<span class="startTime"></span>
+						<span class="endTime"></span>
+					</td>
+					<td>
+						<span class="timeSpanDescription"></span>
+					</td>
+				</tr>
+			</table>
+		</section>
+		
+		<footer class="contentWidth">
+			&copy; 2012 <a href="http://sportsgen.net">SportsGen Ltd</a> | <a href="https://github.com/chris-nz/TimeCalc">Source on Github</a> | <a href="help.html">How to use</a><br>
+			<br>
+			Sponsored by <a href="http://sportsgen.net">SportsGen</a>&reg; | Hosted by <a href="http://vlexofree.com/">VlexoFree Hosting</a><br>
+			<br>
+			<a href="http://www.w3.org/html/logo/">
+				<img src="img/html5-badge-h-css3-semantics-storage.png" title="HTML5 Powered with CSS3 / Styling, Semantics, and Offline &amp; Storage">
+			</a>
+		</footer>
+		
+		<!-- Send browser statistics etc to Google Analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-27217678-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</body>
+</html>
